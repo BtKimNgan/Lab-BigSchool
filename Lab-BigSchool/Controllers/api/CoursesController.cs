@@ -17,7 +17,7 @@ namespace Lab_BigSchool.Controllers.api
         {
             _dbContext = new ApplicationDbContext();
         }
-        [HttpDelete]
+        [System.Web.Http.HttpDelete]
         public IHttpActionResult Cancel(int id)
         {
             var userId = User.Identity.GetUserId();
@@ -27,6 +27,7 @@ namespace Lab_BigSchool.Controllers.api
                 return NotFound();
 
             course.IsCanceled = true;
+
             var notification = new Notification()
             {
                 DateTime = DateTime.Now,
